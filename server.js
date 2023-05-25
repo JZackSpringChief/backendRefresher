@@ -15,6 +15,9 @@ app.get("/", (req, res) => {
   <h4>${swordCharacters[3].name}</h4>from ${swordCharacters[3].Game}; His sword hand is: ${swordCharacters[3].swordHand}; finaly, thier favourite sword is: ${swordCharacters[3].favSword}
   <h4>${swordCharacters[4].name}</h4>from ${swordCharacters[4].Game}; His sword hand is: ${swordCharacters[4].swordHand}; finaly, thier favourite sword is: ${swordCharacters[4].favSword}`);
 });
+{
+  /* <h4>${swordCharacters[5].name}</h4>from ${swordCharacters[5].Game}; His sword hand is: ${swordCharacters[5].swordHand}; finaly, thier favourite sword is: ${swordCharacters[5].favSword}`); */
+}
 app.get("/sword/:id", (req, res) => {
   console.log(req.params.id);
   return res.json({
