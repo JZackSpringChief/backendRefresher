@@ -7,10 +7,6 @@ app.use(express.urlencoded({ extended: true }));
 
 import { swordCharacters } from "./gameChar.js";
 
-app.listen(port, () => {
-  console.log(`Server is up on port ${port}`);
-});
-
 app.get("/", (req, res) => {
   res.send(`<h1>My Favourite RPG Characters</h1>
   <h4>${swordCharacters[0].name}</h4>from ${swordCharacters[0].Game}; His sword hand is: ${swordCharacters[0].swordHand}; finaly, thier favourite sword is: ${swordCharacters[0].favSword}
@@ -19,6 +15,25 @@ app.get("/", (req, res) => {
   <h4>${swordCharacters[3].name}</h4>from ${swordCharacters[3].Game}; His sword hand is: ${swordCharacters[3].swordHand}; finaly, thier favourite sword is: ${swordCharacters[3].favSword}
   <h4>${swordCharacters[4].name}</h4>from ${swordCharacters[4].Game}; His sword hand is: ${swordCharacters[4].swordHand}; finaly, thier favourite sword is: ${swordCharacters[4].favSword}`);
 });
+app.get("/sword/:id", (req, res) => {
+  console.log(req.params.id);
+  return res.json({
+    message: "enter your name",
+    myparams: req.params.id,
+  });
+});
+
+app.get("/sword", (req, res) => {
+  console.log(req.query);
+  return res.json({
+    name: req.query.name,
+    age: req.query.age,
+    swordHand: req.query.sHand,
+    favSword: req.query.fav,
+  });
+});
+//after/sword use "?name='EnterAnyNane'" in browser then "&age='EnterAnyNumber"
+
 app.post("/sword", (req, res) => {
   const newChar = {
     id: req.body.id,
@@ -29,4 +44,21 @@ app.post("/sword", (req, res) => {
   };
   swordCharacters.push(newChar);
   res.json(swordCharacters);
+});
+app.put("/sword/:id", (req, res) => {
+  console.log(req.body);
+  return res.json({
+    message: "create route",
+  });
+});
+
+app.delete("/sword/:id", (req, res) => {
+  console.log(req.params);
+  return res.json({
+    message: "delete route",
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
