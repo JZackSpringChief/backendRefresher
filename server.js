@@ -2,6 +2,21 @@ import dotenv from "dotenv";
 dotenv.config();
 //console.log(process.env.PASSWORD);
 import express from "express";
+//TODO mongo connection this is fill code for next study session
+// mongoose.connect(
+//   "mongodb://localhost:27017/'insertname'",
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedopology: true,
+//   },
+//   (err) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log("Connection aquired");
+//     }
+//   }
+// );
 
 const app = express();
 const port = 6060;
