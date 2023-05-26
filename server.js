@@ -1,4 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
+//console.log(process.env.PASSWORD);
 import express from "express";
+
 const app = express();
 const port = 6060;
 
