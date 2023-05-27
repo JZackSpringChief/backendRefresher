@@ -25,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 import { swordCharacters } from "./gameChar.js";
+import { users } from "./users.js";
 
 app.get("/", (req, res) => {
   res.send(`<h1>My Favourite RPG Characters</h1>
@@ -55,6 +56,16 @@ app.get("/sword", (req, res) => {
   });
 });
 //after/sword use "?name='EnterAnyNane'" in browser then "&age='EnterAnyNumber"
+
+app.post("/user", (req, res) => {
+  const newUser = {
+    name: req.body.name,
+    email: req.body.email,
+    pass: req.body.pass,
+  };
+  users.push(newUser);
+  res.json(newUser);
+});
 
 app.post("/sword", (req, res) => {
   const newChar = {
