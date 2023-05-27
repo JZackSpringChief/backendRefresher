@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 import { swordCharacters } from "./gameChar.js";
-import { users } from "./users.js";
+import { users } from "./users/users.js";
 
 app.get("/", (req, res) => {
   res.send(`<h1>My Favourite RPG Characters</h1>
